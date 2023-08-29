@@ -1,4 +1,4 @@
-const Address = require('../../models/index.js').Address;
+const Address = require('../../config/db.js').Address;
 
 async function createAddressService(data) {
     try {

@@ -1,5 +1,5 @@
-const Address = require('../../models/product.js').Address
-const City = require('../../models/index.js').City
+const Address = require('../../config/db.js').Address
+const City = require('../../config/db.js').City
 
 
 async function createCityService({

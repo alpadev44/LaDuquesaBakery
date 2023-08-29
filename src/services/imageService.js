@@ -1,4 +1,4 @@
-const Image = require('../../models/index.js').Image;
+const Image = require('../../config/db.js').Image;
 
 async function createImageService(data) {
     try {

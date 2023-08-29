@@ -5,27 +5,22 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+require('dotenv').config()
 const db = {};
 
-/*
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
-*/
 
-const sequelize = new Sequelize(config.database, config.username, config.password, {
-  host: config.host,
-  port: config.port,
+console.log('DB:', process.env.DB);
+console.log('USER_NAME:', process.env.USER_NAME);
+console.log('PASSWORD:', process.env.PASSWORD);
+console.log('HOST:', process.env.HOST);
+
+const sequelize = new Sequelize(process.env.DB, process.env.USER_NAME, process.env.PASSWORD, {
+  host: process.env.HOST,
   dialect: 'mysql'
 }) 
-
+const models = '/Users/alpa.dev/Desktop/Duquesa_NodeJS/src/models'
 fs
-  .readdirSync(__dirname)
+  .readdirSync(models)
   .filter(file => {
     return (
       file.indexOf('.') !== 0 &&
@@ -35,7 +30,7 @@ fs
     );
   })
   .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+    const model = require(path.join(models, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
   });
 
