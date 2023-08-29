@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('../models/index.js');
+const db = require('../config/db');
 const addressRouter = require('./routes/addressRoute.js')
 const subCategoryRouter = require('./routes/subCategoryRoute.js')
 const roleRouter = require('./routes/roleRoute.js')
@@ -28,7 +28,7 @@ app.use('/order', orderRouter)
 
 
 db.sequelize.authenticate();
-db.sequelize.sync()
+db.sequelize.sync({ alter: true })
   .then(() => {
     console.log("Conexión a la base de datos establecida con éxito");
     app.listen(PORT, () => console.log(`esta corriendo en el puerto ${PORT}`));

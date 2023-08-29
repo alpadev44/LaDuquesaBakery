@@ -1,4 +1,4 @@
-const Role = require('../../models/index.js').Role;
+const Role = require('../../config/db.js').Role;
 
 async function createRoleService(data) {
     try {

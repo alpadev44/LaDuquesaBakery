@@ -61,6 +61,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true,
             type: DataTypes.STRING,
         },
+        discount: {
+            allowNull: true,
+            type: DataTypes.DOUBLE,
+        },
         score: {
             allowNull: true,
             type: DataTypes.INTEGER,

@@ -1,5 +1,5 @@
-const SubCategory = require('../../models/product.js').SubCategory
-const Category = require('../../models/index.js').Category
+const SubCategory = require('../../config/db.js').SubCategory
+const Category = require('../../config/db.js').Category
 
 
 async function createCategoryService({

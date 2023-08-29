@@ -1,5 +1,5 @@
-const Role = require('../../models/index.js').Role
-const User = require('../../models/index.js').User
+const Role = require('../../config/db.js').Role
+const User = require('../../config/db.js').User
 
 async function createUserService({
     name,

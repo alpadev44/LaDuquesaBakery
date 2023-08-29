@@ -1,4 +1,4 @@
-const SubCategory = require("../../models/index.js").SubCategory;
+const SubCategory = require('../../config/db.js').SubCategory;
 
 async function createSubCategoryService(data) {
   try {

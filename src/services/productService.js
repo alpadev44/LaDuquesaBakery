@@ -1,13 +1,14 @@
-const Product = require('../../models/product.js').Product
-const Category = require('../../models/index.js').Category
-const City = require('../../models/index.js').City
-const Image = require('../../models/index.js').Image
+const Product = require('../../config/db.js').Product
+const Category = require('../../config/db.js').Category
+const City = require('../../config/db.js').City
+const Image = require('../../config/db.js').Image
 
 async function createProductService({
     name,
     sku,
     price,
     ingredients,
+    discount,
     score,
     dataCreated,
     category,
@@ -15,7 +16,7 @@ async function createProductService({
     image
 }) {
     try {
-        let product = await Product.create({ name, sku, price, ingredients, score, dataCreated })
+        let product = await Product.create({ name, sku, price, ingredients, discount, score, dataCreated })
         await product.setCategory(category)
         await product.setCity(city)
         await product.setImage(image)
@@ -66,6 +67,8 @@ async function deleteProductService(id) {
         throw error
     }
 }
+
+
 
 module.exports = { 
     createProductService, 
