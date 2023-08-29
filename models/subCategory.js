@@ -1,3 +1,24 @@
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     subCategory:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 25
+ *         name:
+ *           type: integer
+ *           example: 5
+ *         description:
+ *           type: integer
+ *           example: 5
+ *         url:
+ *           type: string
+ *           example: https://laDuquesaBakery.com/cookies
+ */
+
 module.exports = (sequelize, DataTypes) => {
     const SubCategory = sequelize.define("SubCategory", {
         id: {

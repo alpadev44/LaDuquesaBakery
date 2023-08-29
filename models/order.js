@@ -1,3 +1,36 @@
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     order:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 25
+ *         shoppingCardId:
+ *           type: integer
+ *           example: 5
+ *         customerService:
+ *           type: integer
+ *           example: 5
+ *         subtotal:
+ *           type: number
+ *           example: 12.5
+ *         bonus:
+ *           type: number
+ *           example: 25.0
+ *         total:
+ *            type: number
+ *            example: 100.5
+ *         product_id:
+ *            type: integer
+ *            example: 5
+ *         user_id: 
+ *            type: integer
+ *            example: 6  
+ */
+
 module.exports = (sequelize, DataTypes) => {
     const Order = sequelize.define("Order", {
         id: {

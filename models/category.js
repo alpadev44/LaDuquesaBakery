@@ -1,3 +1,25 @@
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     category:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 25
+ *         name:
+ *           type: string
+ *           example: postre
+ *         description:
+ *            type: string
+ *            example: sabor a cielo estrellado
+ *         url:
+ *            type: string
+ *            example: www.duquesaBakery.com/postres
+ *         subCategory_id:
+ *            type: integer       
+ */
 module.exports = (sequelize, DataTypes) => {
     const Category = sequelize.define("Category", {
         id: {

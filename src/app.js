@@ -9,6 +9,7 @@ const categoryRouter = require('./routes/categoryRoute.js');
 const cityRouter = require('./routes/cityRoute.js');
 const imageRouter = require('./routes/imageRoute.js');
 const orderRouter = require('./routes/orderRoute.js');
+const {swaggerDocs} = require('../config/swagger.js'); 
 
 const app = express();
 
@@ -31,6 +32,7 @@ db.sequelize.sync()
   .then(() => {
     console.log("Conexión a la base de datos establecida con éxito");
     app.listen(PORT, () => console.log(`esta corriendo en el puerto ${PORT}`));
+    swaggerDocs(app, PORT);
   })
   .catch((err) => {
     console.error("No se pudo conectar a la base de datos:", err);

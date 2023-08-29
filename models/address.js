@@ -1,3 +1,30 @@
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     address:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 25
+ *         street: 
+ *           type: string
+ *           example: Calle 38
+ *         number:
+ *            type: string
+ *            example: # 77-31
+ *         housing: 
+ *            type: string
+ *            example: segundo piso
+ *         zone:
+ *            type: string
+ *            example: zona norte
+ *         zipCode:
+ *            type: string
+ *            example: 130001 
+ */
+
 module.exports = (sequelize, DataTypes) => {
     const Address = sequelize.define("Address", {
         id: {

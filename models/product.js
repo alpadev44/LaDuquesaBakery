@@ -1,3 +1,42 @@
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     product:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 25
+ *         name:
+ *           type: string
+ *           example: chocolate cookies
+ *         sku:
+ *           type: string
+ *           example: 
+ *         price:
+ *           type: string
+ *           example: 12.5
+ *         ingredients:
+ *           type: string
+ *           example: chocolate, eggs, etc
+ *         score:
+ *            type: integer
+ *            example: 4
+ *         product_id:
+ *            type: integer
+ *            example: 5
+ *         category_id: 
+ *            type: integer
+ *            example: 6 
+ *         city_id: 
+ *            type: integer
+ *            example: 6   
+ *         image_id: 
+ *            type: integer
+ *            example: 6  
+ */
+
 module.exports = (sequelize, DataTypes) => {
     const Product = sequelize.define("Product", {
         id: {

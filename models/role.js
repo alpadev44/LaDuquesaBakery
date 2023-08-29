@@ -1,3 +1,18 @@
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     role:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 25
+ *         name:
+ *           type: string
+ *           example: usuario
+ */
+
 module.exports = (sequelize, DataTypes) => {
     const Role = sequelize.define("Role", {
         id: {

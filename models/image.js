@@ -1,3 +1,17 @@
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     image:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 25
+ *         url:
+ *           type: string
+ *           example: https://postre.jpg
+ */
 module.exports = (sequelize, DataTypes) => {
     const Image = sequelize.define("Image", {
         id: {
