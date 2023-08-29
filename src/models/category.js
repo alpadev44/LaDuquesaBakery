@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
     Category.associate = function(models) {
         Category.belongsTo(models.SubCategory, {
             foreignKey: 'subCategory_id',
-            as: 'category',
+            as: 'sub',
             onDelete: 'CASCADE' 
         }),
         Category.hasOne(models.Product, {

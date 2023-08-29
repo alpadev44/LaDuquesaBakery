@@ -112,6 +112,9 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'image_id',
             as: 'image',
         });
+        Product.belongsToMany(models.Order , {
+            through: 'orderProduct'
+        })
     }
     
     return Product

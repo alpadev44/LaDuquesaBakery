@@ -60,9 +60,9 @@ module.exports = orderRouter
  *                     error:
  *                       type: string
  *                       example: "error interno del servidor"
- * /image:
+ * /order:
  *   get:
- *     tags: [image]
+ *     tags: [order]
  *     responses:
  *       200:
  *         description: OK
@@ -77,7 +77,7 @@ module.exports = orderRouter
  *                 data:
  *                   type: array
  *                   items:
- *                      $ref: "#/components/schemas/image"
+ *                      $ref: "#/components/schemas/order"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -94,9 +94,9 @@ module.exports = orderRouter
  *                     error:
  *                       type: string
  *                       example: "Some error message"
- * /image/{id}:
+ * /order/{id}:
  *   get:
- *     tags: [image]
+ *     tags: [order]
  *     parameters:
  *       - name: id
  *         in: path
@@ -117,7 +117,7 @@ module.exports = orderRouter
  *                   example: OK
  *                 data:
  *                   type: object
- *                   $ref: "#/components/schemas/image"
+ *                   $ref: "#/components/schemas/order"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -135,7 +135,7 @@ module.exports = orderRouter
  *                       type: string
  *                       example: "Some error message"
  *   put:
- *     tags: [image]
+ *     tags: [order]
  *     parameters:
  *       - name: id
  *         in: path
@@ -148,7 +148,7 @@ module.exports = orderRouter
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/image"
+ *                $ref: "#/components/schemas/order"
  *     responses:
  *       200:
  *         description: OK
@@ -180,7 +180,7 @@ module.exports = orderRouter
  *                       type: string
  *                       example: "Some error message"
  *   delete:
- *     tags: [image]
+ *     tags: [order]
  *     parameters:
  *       - name: id
  *         in: path

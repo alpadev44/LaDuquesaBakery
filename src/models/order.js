@@ -63,13 +63,13 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true,
             type: DataTypes.DOUBLE,
         },
-        product_id: {
-            type: DataTypes.BIGINT,
-            allowNull: true,
-            references: {
-                model: 'Products'
-            }
-        },
+        // product_id: {
+        //     type: DataTypes.BIGINT,
+        //     allowNull: true,
+        //     references: {
+        //         model: 'Products'
+        //     }
+        // },
         user_id: {
             type: DataTypes.BIGINT,
             allowNull: true,
@@ -79,10 +79,9 @@ module.exports = (sequelize, DataTypes) => {
         }
     })
     Order.associate = function (models) {
-        Order.belongsTo(models.Product , {
-            foreignKey: 'product_id',
-            as: 'product'
-        }),
+        Order.belongsToMany(models.Product , {
+            through: 'orderProduct'
+        })
         Order.hasOne(models.User, {
             foreignKey: 'user_id',
             as: 'user',

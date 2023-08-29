@@ -10,7 +10,8 @@ async function createCategoryService({
 }) {
     try {
         let category = await Category.create({ name, description, url })
-        await category.setSubCategory(subCategory)
+        console.log(category)
+        await category.setSub(subCategory)
         return category
     }
     catch(error) {

@@ -15,11 +15,15 @@ localhost:3011/order/create
 {
     "orderTackingNumber": 12345678,
     "shoppingCartId": 101,
+    "products": [
+        {
+            "price": "1000",
+            "discount": "0.1"
+        }
+    ],
+    "bonus": 105,
     "customerService": 1,
-    "subtotal": 100.50,
-    "bonus": 10.00,
-    "total": 90.50,
-    "product_id": 1,
+    "products_id": [1],
     "user_id": 1
 }
 

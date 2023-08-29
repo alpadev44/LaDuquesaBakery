@@ -1,4 +1,5 @@
 const express = require('express');
+const morgan = require('morgan');
 const db = require('../config/db');
 const addressRouter = require('./routes/addressRoute.js')
 const subCategoryRouter = require('./routes/subCategoryRoute.js')
@@ -16,10 +17,11 @@ const app = express();
 const PORT = process.env.PORT || 3011;
 
 app.use(express.json());
+app.use(morgan('dev'));
 app.use('/address', addressRouter)
 app.use('/city', cityRouter)
 app.use('/subCategory', subCategoryRouter)
-app.use('category', categoryRouter)
+app.use('/category', categoryRouter)
 app.use('/image', imageRouter)
 app.use('/product', productRouter)
 app.use('/role', roleRouter)

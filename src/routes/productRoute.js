@@ -17,20 +17,21 @@ productRouter.delete('/:id', deleteProductController)
 
 module.exports = productRouter
 
+
 /**
  * @openapi
  * tags:
- *   nameproduct
- *   description: API para manejar las direcciones
+ *   name: product
+ *   description: API para manejar las imagenes
  * /product/create:
  *   post:
- *     tags:[product]
+ *     tags: [product]
  *     requestBody:
  *       description: crea un nueva direccion
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemaproduct"
+ *                $ref: "#/components/schemas/product"
  *     responses:
  *       200:
  *         description: OK
@@ -43,7 +44,7 @@ module.exports = productRouter
  *                   type: string
  *                   example: OK
  *                 data:
- *                    $ref: "#/components/schemaproduct"
+ *                    $ref: "#/components/schemas/product"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -60,9 +61,9 @@ module.exports = productRouter
  *                     error:
  *                       type: string
  *                       example: "error interno del servidor"
- * product:
+ * /product:
  *   get:
- *     tags: product]
+ *     tags: [product]
  *     responses:
  *       200:
  *         description: OK
@@ -77,7 +78,7 @@ module.exports = productRouter
  *                 data:
  *                   type: array
  *                   items:
- *                      $ref: "#/components/schemasproduct"
+ *                      $ref: "#/components/schemas/product"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -104,7 +105,7 @@ module.exports = productRouter
  *         required: true
  *         schema:
  *           type: string
- *     rproduct
+ *     responses:
  *       200:
  *         description: OK
  *         content:
@@ -135,7 +136,7 @@ module.exports = productRouter
  *                       type: string
  *                       example: "Some error message"
  *   put:
- *     tags: product]
+ *     tags: [product]
  *     parameters:
  *       - name: id
  *         in: path
@@ -148,7 +149,7 @@ module.exports = productRouter
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemasproduct"
+ *                $ref: "#/components/schemas/product"
  *     responses:
  *       200:
  *         description: OK

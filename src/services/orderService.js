@@ -1,31 +1,32 @@
-const Product = require('../../config/db.js').Product
-const User = require('../../config/db.js').User
-const Order = require('../../config/db.js').Order
+const Product = require('../../config/db.js').Product;
+const User = require('../../config/db.js').User;
+const Order = require('../../config/db.js').Order;
+const {invoice} = require('../utils/invoicing.js');
 
 async function createOrderService({
     orderTackingNumber,
     shoppingCartId,
     customerService,
-    subtotal,
+    products,
     bonus,
-    total,
-    product,
-    user
+    user_id,
+    products_id
 }) {
     try {
-        const subTotalValue = await subtotal({ product });
-        const totalValue = await total({ product, bonus });
+        const invoicing =  invoice(products, bonus);
+
+        console.log(invoicing.total)
 
         let order = await Order.create({ 
             orderTackingNumber, 
             shoppingCartId, 
             customerService, 
-            subtotal: subTotalValue, 
-            bonus, 
-            total: totalValue })
+            total: invoicing.total,
+            bonus,
+            subtotal: invoicing.subTotal, })
 
-        await order.setProduct(product)
-        await order.setUser(user)
+        await order.setProducts(products_id)
+        await order.setUser(user_id)
     
         return order
     }
@@ -75,20 +76,7 @@ async function deleteOrderService(id) {
     }
 }
 
-function subtotal(order) {
-    let subtotalProduct = order.product
-                   .map(product => parseFloat(product.price * product.discount) || 0)
-                   .reduce((sum, price) => sum + price, 0); 
 
-    return Math.round(subtotal);
-}
-
-function total(order) {
-    const subtotal = subtotal(order) 
-    let bonus = order.bonus
-
-    return subtotal - bonus
-}
 /*
 
 
