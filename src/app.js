@@ -10,6 +10,7 @@ const categoryRouter = require('./routes/categoryRoute.js');
 const cityRouter = require('./routes/cityRoute.js');
 const imageRouter = require('./routes/imageRoute.js');
 const orderRouter = require('./routes/orderRoute.js');
+const paypalRouter = require('./routes/paypalRoutes.js')
 const {swaggerDocs} = require('../config/swagger.js'); 
 
 const app = express();
@@ -27,6 +28,7 @@ app.use('/product', productRouter)
 app.use('/role', roleRouter)
 app.use('/user', userRouter)
 app.use('/order', orderRouter)
+app.use('/payment', paypalRouter )
 
 
 db.sequelize.authenticate();
