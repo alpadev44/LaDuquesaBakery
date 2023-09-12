@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
         email: {
             allowNull: true,
             type: DataTypes.STRING,
-            unique: true
+            //unique: true
         },
         password: {
             allowNull: true,
@@ -57,14 +57,14 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true,
             type: DataTypes.STRING,
         },
-        role_id: {
-            type: DataTypes.BIGINT,
-            allowNull: true,
-            references: {
-                model: 'Roles',
-                key: 'id'
-            }
-        }
+        // role_id: {
+        //     type: DataTypes.BIGINT,
+        //     allowNull: true,
+        //     references: {
+        //         model: 'Roles',
+        //         key: 'id'
+        //     }
+        // }
     })
     User.associate = function (models) {
         User.belongsTo(models.Role, {

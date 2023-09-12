@@ -19,8 +19,9 @@ const sequelize = new Sequelize(process.env.DB, process.env.USER_NAME, process.e
   dialect: 'mysql'
 }) 
 //const models = '/Users/alpa.dev/Desktop/Duquesa_NodeJS/src/models'
-console.log(__dirname);
-const models = "C:/Users/JAVIER VASQUEZ/Desktop/node-projects/LaDuquesaBakery/src/models"
+
+const models = path.join(__dirname, "../src/models")
+
 fs
   .readdirSync(models)
   .filter(file => {

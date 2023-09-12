@@ -1,8 +1,13 @@
-const express  = require('express') 
-const { createAddressController, getAllAddressController, detailsAddressController, updateAddressController, deleteAddressController } = require('../controllers/addressController')
+const express = require("express");
+const {
+  createAddressController,
+  getAllAddressController,
+  detailsAddressController,
+  updateAddressController,
+  deleteAddressController,
+} = require("../controllers/addressController");
 
-const addressRouter = express.Router()
-
+const addressRouter = express.Router();
 
 /**
  * @openapi
@@ -46,7 +51,7 @@ const addressRouter = express.Router()
  *                       type: string
  *                       example: "error interno del servidor"
  */
-addressRouter.post('/create', createAddressController)
+addressRouter.post("/create", createAddressController);
 
 /**
  * @openapi
@@ -86,7 +91,7 @@ addressRouter.post('/create', createAddressController)
  *                       type: string
  *                       example: "Some error message"
  */
-addressRouter.get('/', getAllAddressController)
+addressRouter.get("/", getAllAddressController);
 
 /**
  * @openapi
@@ -131,11 +136,10 @@ addressRouter.get('/', getAllAddressController)
  *                     error:
  *                       type: string
  *                       example: "Some error message"
- * 
+ *
  */
 
-
-addressRouter.get('/:id', detailsAddressController)
+addressRouter.get("/:id", detailsAddressController);
 
 /**
  * @openapi
@@ -187,7 +191,7 @@ addressRouter.get('/:id', detailsAddressController)
  *                       type: string
  *                       example: "Some error message"
  */
-addressRouter.put('/:id', updateAddressController)
+addressRouter.put("/:id", updateAddressController);
 
 /**
  * @openapi
@@ -233,6 +237,6 @@ addressRouter.put('/:id', updateAddressController)
  *                       type: string
  *                       example: "Some error message"
  */
-addressRouter.delete('/:id', deleteAddressController)
+addressRouter.delete("/:id", deleteAddressController);
 
-module.exports = addressRouter
+module.exports = addressRouter;
