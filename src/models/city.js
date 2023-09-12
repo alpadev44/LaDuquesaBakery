@@ -44,11 +44,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     })
     City.associate = function (models) {
-        City.belongsTo(models.Address, {
-            foreignKey: 'address_id',
-            as: 'address',
-            onDelete: 'CASCADE'
-        }),
+        City.belongsTo(models.Address),
         City.hasOne(models.Product, {
             foreignKey: 'city_id',
             as: 'product',

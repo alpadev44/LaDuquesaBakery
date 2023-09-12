@@ -1,26 +1,36 @@
-const express = require("express");
-const {
-  createAddressController,
-  getAllAddressController,
-  detailsAddressController,
-  updateAddressController,
-  deleteAddressController,
-} = require("../controllers/addressController");
+const express  = require('express') 
+const { 
+    createCategoryController,
+    getAllCategoryController, 
+    detailsCategoryController, 
+    updateCategoryController, 
+    deleteCategoryController
+} = require('../controllers/category.controller.js')
 
-const addressRouter = express.Router();
+const categoryRouter = express.Router()
+
+categoryRouter.post('/create', createCategoryController)
+categoryRouter.get('/', getAllCategoryController)
+categoryRouter.get('/:id', detailsCategoryController)
+categoryRouter.put('/:id', updateCategoryController)
+categoryRouter.delete('/:id', deleteCategoryController)
+
+module.exports = categoryRouter
 
 /**
  * @openapi
- * /address/create:
+ * tags:
+ *   name: category
+ *   description: API para manejar las direcciones
+ * /category/create:
  *   post:
- *     tags:
- *       - address
+ *     tags: [category]
  *     requestBody:
  *       description: crea un nueva direccion
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/address"
+ *                $ref: "#/components/schemas/category"
  *     responses:
  *       200:
  *         description: OK
@@ -33,7 +43,7 @@ const addressRouter = express.Router();
  *                   type: string
  *                   example: OK
  *                 data:
- *                    $ref: "#/components/schemas/address"
+ *                    $ref: "#/components/schemas/category"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -50,15 +60,9 @@ const addressRouter = express.Router();
  *                     error:
  *                       type: string
  *                       example: "error interno del servidor"
- */
-addressRouter.post("/create", createAddressController);
-
-/**
- * @openapi
- * /address:
+ * /category:
  *   get:
- *     tags:
- *       - address
+ *     tags: [category]
  *     responses:
  *       200:
  *         description: OK
@@ -73,7 +77,7 @@ addressRouter.post("/create", createAddressController);
  *                 data:
  *                   type: array
  *                   items:
- *                      $ref: "#/components/schemas/address"
+ *                      $ref: "#/components/schemas/category"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -90,15 +94,9 @@ addressRouter.post("/create", createAddressController);
  *                     error:
  *                       type: string
  *                       example: "Some error message"
- */
-addressRouter.get("/", getAllAddressController);
-
-/**
- * @openapi
- * /address/{id}:
+ * /category/{id}:
  *   get:
- *     tags:
- *       - address
+ *     tags: [category]
  *     parameters:
  *       - name: id
  *         in: path
@@ -119,7 +117,7 @@ addressRouter.get("/", getAllAddressController);
  *                   example: OK
  *                 data:
  *                   type: object
- *                   $ref: "#/components/schemas/address"
+ *                   $ref: "#/components/schemas/category"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -136,17 +134,8 @@ addressRouter.get("/", getAllAddressController);
  *                     error:
  *                       type: string
  *                       example: "Some error message"
- *
- */
-
-addressRouter.get("/:id", detailsAddressController);
-
-/**
- * @openapi
- * /address/{id}:
  *   put:
- *     tags:
- *       - address
+ *     tags: [category]
  *     parameters:
  *       - name: id
  *         in: path
@@ -159,7 +148,7 @@ addressRouter.get("/:id", detailsAddressController);
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/address"
+ *                $ref: "#/components/schemas/category"
  *     responses:
  *       200:
  *         description: OK
@@ -190,15 +179,8 @@ addressRouter.get("/:id", detailsAddressController);
  *                     error:
  *                       type: string
  *                       example: "Some error message"
- */
-addressRouter.put("/:id", updateAddressController);
-
-/**
- * @openapi
- * /address/{id}:
  *   delete:
- *     tags:
- *       - address
+ *     tags: [category]
  *     parameters:
  *       - name: id
  *         in: path
@@ -237,6 +219,3 @@ addressRouter.put("/:id", updateAddressController);
  *                       type: string
  *                       example: "Some error message"
  */
-addressRouter.delete("/:id", deleteAddressController);
-
-module.exports = addressRouter;

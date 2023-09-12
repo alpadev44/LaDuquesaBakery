@@ -1,36 +1,26 @@
-const express  = require('express') 
-const { 
-    createCityController,
-    getAllCityController, 
-    detailsCityController, 
-    updateCityController, 
-    deleteCityController
-} = require('../controllers/cityController.js')
+const express = require("express");
+const {
+  createAddressController,
+  getAllAddressController,
+  detailsAddressController,
+  updateAddressController,
+  deleteAddressController,
+} = require("../controllers/address.controller");
 
-const cityRouter = express.Router()
-
-cityRouter.post('/create', createCityController)
-cityRouter.get('/', getAllCityController)
-cityRouter.get('/:id', detailsCityController)
-cityRouter.put('/:id', updateCityController)
-cityRouter.delete('/:id', deleteCityController)
-
-module.exports = cityRouter
+const addressRouter = express.Router();
 
 /**
  * @openapi
- * tags:
- *   name: city
- *   description: API para manejar las direcciones
- * /city/create:
+ * /address/create:
  *   post:
- *     tags: [city]
+ *     tags:
+ *       - address
  *     requestBody:
  *       description: crea un nueva direccion
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/city"
+ *                $ref: "#/components/schemas/address"
  *     responses:
  *       200:
  *         description: OK
@@ -43,7 +33,7 @@ module.exports = cityRouter
  *                   type: string
  *                   example: OK
  *                 data:
- *                    $ref: "#/components/schemas/city"
+ *                    $ref: "#/components/schemas/address"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -60,9 +50,15 @@ module.exports = cityRouter
  *                     error:
  *                       type: string
  *                       example: "error interno del servidor"
- * /city:
+ */
+addressRouter.post("/create", createAddressController);
+
+/**
+ * @openapi
+ * /address:
  *   get:
- *     tags: [city]
+ *     tags:
+ *       - address
  *     responses:
  *       200:
  *         description: OK
@@ -77,7 +73,7 @@ module.exports = cityRouter
  *                 data:
  *                   type: array
  *                   items:
- *                      $ref: "#/components/schemas/city"
+ *                      $ref: "#/components/schemas/address"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -94,9 +90,15 @@ module.exports = cityRouter
  *                     error:
  *                       type: string
  *                       example: "Some error message"
- * /city/{id}:
+ */
+addressRouter.get("/", getAllAddressController);
+
+/**
+ * @openapi
+ * /address/{id}:
  *   get:
- *     tags: [city]
+ *     tags:
+ *       - address
  *     parameters:
  *       - name: id
  *         in: path
@@ -117,7 +119,7 @@ module.exports = cityRouter
  *                   example: OK
  *                 data:
  *                   type: object
- *                   $ref: "#/components/schemascity"
+ *                   $ref: "#/components/schemas/address"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -134,8 +136,17 @@ module.exports = cityRouter
  *                     error:
  *                       type: string
  *                       example: "Some error message"
+ *
+ */
+
+addressRouter.get("/:id", detailsAddressController);
+
+/**
+ * @openapi
+ * /address/{id}:
  *   put:
- *     tags: [city]
+ *     tags:
+ *       - address
  *     parameters:
  *       - name: id
  *         in: path
@@ -148,7 +159,7 @@ module.exports = cityRouter
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/city"
+ *                $ref: "#/components/schemas/address"
  *     responses:
  *       200:
  *         description: OK
@@ -179,8 +190,15 @@ module.exports = cityRouter
  *                     error:
  *                       type: string
  *                       example: "Some error message"
+ */
+addressRouter.put("/:id", updateAddressController);
+
+/**
+ * @openapi
+ * /address/{id}:
  *   delete:
- *     tags: [city]
+ *     tags:
+ *       - address
  *     parameters:
  *       - name: id
  *         in: path
@@ -219,3 +237,6 @@ module.exports = cityRouter
  *                       type: string
  *                       example: "Some error message"
  */
+addressRouter.delete("/:id", deleteAddressController);
+
+module.exports = addressRouter;

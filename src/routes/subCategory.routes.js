@@ -1,37 +1,37 @@
 const express  = require('express') 
-const { 
-    createProductController,
-    getAllProductController, 
-    detailsProductController, 
-    updateProductController, 
-    deleteProductController
-} = require('../controllers/productController.js')
+const {
+    createSubCategoryController,
+    getAllSubCategoryController,
+    detailsSubCategoryController,
+    updateSubCategoryController,
+    deleteSubCategoryController,
+  } = require('../controllers/subCategory.controller')
 
-const productRouter = express.Router()
+const subCategoryRouter = express.Router()
 
-productRouter.post('/create', createProductController)
-productRouter.get('/', getAllProductController)
-productRouter.get('/:id', detailsProductController)
-productRouter.put('/:id', updateProductController)
-productRouter.delete('/:id', deleteProductController)
+subCategoryRouter.post('/create', createSubCategoryController)
+subCategoryRouter.get('/', getAllSubCategoryController)
+subCategoryRouter.get('/:id', detailsSubCategoryController)
+subCategoryRouter.put('/:id', updateSubCategoryController)
+subCategoryRouter.delete('/:id', deleteSubCategoryController)
 
-module.exports = productRouter
+module.exports = subCategoryRouter
 
 
 /**
  * @openapi
  * tags:
- *   name: product
+ *   name: subCategory
  *   description: API para manejar las imagenes
- * /product/create:
+ * /subCategory/create:
  *   post:
- *     tags: [product]
+ *     tags: [subCategory]
  *     requestBody:
  *       description: crea un nueva direccion
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/product"
+ *                $ref: "#/components/schemas/subCategory"
  *     responses:
  *       200:
  *         description: OK
@@ -44,7 +44,7 @@ module.exports = productRouter
  *                   type: string
  *                   example: OK
  *                 data:
- *                    $ref: "#/components/schemas/product"
+ *                    $ref: "#/components/schemas/subCategory"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -61,9 +61,9 @@ module.exports = productRouter
  *                     error:
  *                       type: string
  *                       example: "error interno del servidor"
- * /product:
+ * /subCategory:
  *   get:
- *     tags: [product]
+ *     tags: [subCategory]
  *     responses:
  *       200:
  *         description: OK
@@ -78,7 +78,7 @@ module.exports = productRouter
  *                 data:
  *                   type: array
  *                   items:
- *                      $ref: "#/components/schemas/product"
+ *                      $ref: "#/components/schemas/subCategory"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -95,9 +95,9 @@ module.exports = productRouter
  *                     error:
  *                       type: string
  *                       example: "Some error message"
- * /product/{id}:
+ * /subCategory/{id}:
  *   get:
- *     tags: [product]
+ *     tags: [subCategory]
  *     parameters:
  *       - name: id
  *         in: path
@@ -118,7 +118,7 @@ module.exports = productRouter
  *                   example: OK
  *                 data:
  *                   type: object
- *                   $ref: "#/components/schemas/product"
+ *                   $ref: "#/components/schemas/subCategory"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -136,7 +136,7 @@ module.exports = productRouter
  *                       type: string
  *                       example: "Some error message"
  *   put:
- *     tags: [product]
+ *     tags: [subCategory]
  *     parameters:
  *       - name: id
  *         in: path
@@ -149,7 +149,7 @@ module.exports = productRouter
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/product"
+ *                $ref: "#/components/schemas/subCategory"
  *     responses:
  *       200:
  *         description: OK
@@ -181,7 +181,7 @@ module.exports = productRouter
  *                       type: string
  *                       example: "Some error message"
  *   delete:
- *     tags: [product]
+ *     tags: [subCategory]
  *     parameters:
  *       - name: id
  *         in: path

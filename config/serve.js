@@ -3,16 +3,16 @@ require("dotenv/config.js");
 //const cors = require("cors");
 const { swaggerDocs } = require("./swagger.js");
 
-const addressRouter = require("../src/routes/addressRoute.js");
-const subCategoryRouter = require("../src/routes/subCategoryRoute.js");
-const roleRouter = require("../src/routes/roleRoute.js");
-const userRouter = require("../src/routes/userRoute.js");
-const productRouter = require("../src/routes/productRoute.js");
-const categoryRouter = require("../src/routes/categoryRoute.js");
-const cityRouter = require("../src/routes/cityRoute.js");
-const imageRouter = require("../src/routes/imageRoute.js");
-const orderRouter = require("../src/routes/orderRoute.js");
-const paypalRouter = require("../src/routes/paypalRoutes.js");
+const addressRouter = require("../src/routes/address.routes.js");
+const subCategoryRouter = require("../src/routes/subCategory.routes.js");
+const roleRouter = require("../src/routes/role.routes.js");
+const userRouter = require("../src/routes/user.routes.js");
+const productRouter = require("../src/routes/product.routes.js");
+const categoryRouter = require("../src/routes/category.routes.js");
+const cityRouter = require("../src/routes/city.routes.js");
+const imageRouter = require("../src/routes/image.routes.js");
+const orderRouter = require("../src/routes/order.routes.js");
+const paypalRouter = require("../src/routes/paypal.routes.js");
 
 const db = require("./db.js");
 

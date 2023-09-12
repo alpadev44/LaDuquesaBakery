@@ -1,37 +1,37 @@
-const express  = require('express') 
-const {
-    createSubCategoryController,
-    getAllSubCategoryController,
-    detailsSubCategoryController,
-    updateSubCategoryController,
-    deleteSubCategoryController,
-  } = require('../controllers/subCategoryController')
+const express  = require('express')
+ const {
+    createRoleController,
+    getAllRoleController,
+    detailsRoleController,
+    updateRoleController,
+    deleteRoleController,
+  } = require('../controllers/role.controller')
 
-const subCategoryRouter = express.Router()
+  const roleRouter = express.Router()
 
-subCategoryRouter.post('/create', createSubCategoryController)
-subCategoryRouter.get('/', getAllSubCategoryController)
-subCategoryRouter.get('/:id', detailsSubCategoryController)
-subCategoryRouter.put('/:id', updateSubCategoryController)
-subCategoryRouter.delete('/:id', deleteSubCategoryController)
+roleRouter.post('/create', createRoleController)
+roleRouter.get('/', getAllRoleController)
+roleRouter.get('/:id', detailsRoleController)
+roleRouter.put('/:id', updateRoleController)
+roleRouter.delete('/:id', deleteRoleController)
 
-module.exports = subCategoryRouter
+module.exports = roleRouter
 
 
 /**
  * @openapi
  * tags:
- *   name: subCategory
+ *   name: role
  *   description: API para manejar las imagenes
- * /subCategory/create:
+ * /role/create:
  *   post:
- *     tags: [subCategory]
+ *     tags: [role]
  *     requestBody:
  *       description: crea un nueva direccion
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/subCategory"
+ *                $ref: "#/components/schemas/role"
  *     responses:
  *       200:
  *         description: OK
@@ -44,7 +44,7 @@ module.exports = subCategoryRouter
  *                   type: string
  *                   example: OK
  *                 data:
- *                    $ref: "#/components/schemas/subCategory"
+ *                    $ref: "#/components/schemas/role"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -61,9 +61,9 @@ module.exports = subCategoryRouter
  *                     error:
  *                       type: string
  *                       example: "error interno del servidor"
- * /subCategory:
+ * role :
  *   get:
- *     tags: [subCategory]
+ *     tags: [role]
  *     responses:
  *       200:
  *         description: OK
@@ -78,7 +78,7 @@ module.exports = subCategoryRouter
  *                 data:
  *                   type: array
  *                   items:
- *                      $ref: "#/components/schemas/subCategory"
+ *                      $ref: "#/components/schemas/role"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -95,9 +95,9 @@ module.exports = subCategoryRouter
  *                     error:
  *                       type: string
  *                       example: "Some error message"
- * /subCategory/{id}:
+ * /role  /{id}:
  *   get:
- *     tags: [subCategory]
+ *     tags: [role  ]
  *     parameters:
  *       - name: id
  *         in: path
@@ -118,7 +118,7 @@ module.exports = subCategoryRouter
  *                   example: OK
  *                 data:
  *                   type: object
- *                   $ref: "#/components/schemas/subCategory"
+ *                   $ref: "#/components/schemas/role "
  *       5XX:
  *         description: FAILED
  *         content:
@@ -136,7 +136,7 @@ module.exports = subCategoryRouter
  *                       type: string
  *                       example: "Some error message"
  *   put:
- *     tags: [subCategory]
+ *     tags: [role]
  *     parameters:
  *       - name: id
  *         in: path
@@ -149,7 +149,7 @@ module.exports = subCategoryRouter
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/subCategory"
+ *                $ref: "#/components/schemas/role"
  *     responses:
  *       200:
  *         description: OK
@@ -181,7 +181,7 @@ module.exports = subCategoryRouter
  *                       type: string
  *                       example: "Some error message"
  *   delete:
- *     tags: [subCategory]
+ *     tags: [role]
  *     parameters:
  *       - name: id
  *         in: path

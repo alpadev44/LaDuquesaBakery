@@ -1,36 +1,36 @@
 const express  = require('express') 
 const { 
-    createCategoryController,
-    getAllCategoryController, 
-    detailsCategoryController, 
-    updateCategoryController, 
-    deleteCategoryController
-} = require('../controllers/categoryController.js')
+    createCityController,
+    getAllCityController, 
+    detailsCityController, 
+    updateCityController, 
+    deleteCityController
+} = require('../controllers/city.controller.js')
 
-const categoryRouter = express.Router()
+const cityRouter = express.Router()
 
-categoryRouter.post('/create', createCategoryController)
-categoryRouter.get('/', getAllCategoryController)
-categoryRouter.get('/:id', detailsCategoryController)
-categoryRouter.put('/:id', updateCategoryController)
-categoryRouter.delete('/:id', deleteCategoryController)
+cityRouter.post('/create', createCityController)
+cityRouter.get('/', getAllCityController)
+cityRouter.get('/:id', detailsCityController)
+cityRouter.put('/:id', updateCityController)
+cityRouter.delete('/:id', deleteCityController)
 
-module.exports = categoryRouter
+module.exports = cityRouter
 
 /**
  * @openapi
  * tags:
- *   name: category
+ *   name: city
  *   description: API para manejar las direcciones
- * /category/create:
+ * /city/create:
  *   post:
- *     tags: [category]
+ *     tags: [city]
  *     requestBody:
  *       description: crea un nueva direccion
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/category"
+ *                $ref: "#/components/schemas/city"
  *     responses:
  *       200:
  *         description: OK
@@ -43,7 +43,7 @@ module.exports = categoryRouter
  *                   type: string
  *                   example: OK
  *                 data:
- *                    $ref: "#/components/schemas/category"
+ *                    $ref: "#/components/schemas/city"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -60,9 +60,9 @@ module.exports = categoryRouter
  *                     error:
  *                       type: string
  *                       example: "error interno del servidor"
- * /category:
+ * /city:
  *   get:
- *     tags: [category]
+ *     tags: [city]
  *     responses:
  *       200:
  *         description: OK
@@ -77,7 +77,7 @@ module.exports = categoryRouter
  *                 data:
  *                   type: array
  *                   items:
- *                      $ref: "#/components/schemas/category"
+ *                      $ref: "#/components/schemas/city"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -94,9 +94,9 @@ module.exports = categoryRouter
  *                     error:
  *                       type: string
  *                       example: "Some error message"
- * /category/{id}:
+ * /city/{id}:
  *   get:
- *     tags: [category]
+ *     tags: [city]
  *     parameters:
  *       - name: id
  *         in: path
@@ -117,7 +117,7 @@ module.exports = categoryRouter
  *                   example: OK
  *                 data:
  *                   type: object
- *                   $ref: "#/components/schemas/category"
+ *                   $ref: "#/components/schemascity"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -135,7 +135,7 @@ module.exports = categoryRouter
  *                       type: string
  *                       example: "Some error message"
  *   put:
- *     tags: [category]
+ *     tags: [city]
  *     parameters:
  *       - name: id
  *         in: path
@@ -148,7 +148,7 @@ module.exports = categoryRouter
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/category"
+ *                $ref: "#/components/schemas/city"
  *     responses:
  *       200:
  *         description: OK
@@ -180,7 +180,7 @@ module.exports = categoryRouter
  *                       type: string
  *                       example: "Some error message"
  *   delete:
- *     tags: [category]
+ *     tags: [city]
  *     parameters:
  *       - name: id
  *         in: path

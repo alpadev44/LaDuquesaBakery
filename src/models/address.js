@@ -31,33 +31,31 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true,
             type: DataTypes.BIGINT,
-            allowNull: true,
         },
         street: {
-            allowNull: true,
             type: DataTypes.STRING,
+            allowNull: false,
         },
         number: {
-            allowNull: true,
             type: DataTypes.STRING,
+            allowNull: false,
         },
         housing: {
-            allowNull: true,
             type: DataTypes.STRING,
+            allowNull: true,
         },
         zone: {
-            allowNull: true,
             type: DataTypes.STRING,
+            allowNull: false,
         },
         zipCode: {
-            allowNull: true,
             type: DataTypes.STRING,
+            allowNull: true,
         },
     });
     Address.associate = function (models) {
         Address.hasOne(models.City, {
             foreignKey: 'address_id',
-            as: 'city',
         });
     };
     return Address;

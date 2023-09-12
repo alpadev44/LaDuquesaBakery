@@ -5,7 +5,7 @@ const {
     detailsImageController, 
     updateImageController, 
     deleteImageController
-} = require('../controllers/imageController.js')
+} = require('../controllers/image.controller.js')
 
 const imageRouter = express.Router()
 

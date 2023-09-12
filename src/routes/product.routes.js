@@ -1,37 +1,37 @@
-const express  = require('express')
- const {
-    createRoleController,
-    getAllRoleController,
-    detailsRoleController,
-    updateRoleController,
-    deleteRoleController,
-  } = require('../controllers/roleController')
+const express  = require('express') 
+const { 
+    createProductController,
+    getAllProductController, 
+    detailsProductController, 
+    updateProductController, 
+    deleteProductController
+} = require('../controllers/product.controller.js')
 
-  const roleRouter = express.Router()
+const productRouter = express.Router()
 
-roleRouter.post('/create', createRoleController)
-roleRouter.get('/', getAllRoleController)
-roleRouter.get('/:id', detailsRoleController)
-roleRouter.put('/:id', updateRoleController)
-roleRouter.delete('/:id', deleteRoleController)
+productRouter.post('/create', createProductController)
+productRouter.get('/', getAllProductController)
+productRouter.get('/:id', detailsProductController)
+productRouter.put('/:id', updateProductController)
+productRouter.delete('/:id', deleteProductController)
 
-module.exports = roleRouter
+module.exports = productRouter
 
 
 /**
  * @openapi
  * tags:
- *   name: role
+ *   name: product
  *   description: API para manejar las imagenes
- * /role/create:
+ * /product/create:
  *   post:
- *     tags: [role]
+ *     tags: [product]
  *     requestBody:
  *       description: crea un nueva direccion
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/role"
+ *                $ref: "#/components/schemas/product"
  *     responses:
  *       200:
  *         description: OK
@@ -44,7 +44,7 @@ module.exports = roleRouter
  *                   type: string
  *                   example: OK
  *                 data:
- *                    $ref: "#/components/schemas/role"
+ *                    $ref: "#/components/schemas/product"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -61,9 +61,9 @@ module.exports = roleRouter
  *                     error:
  *                       type: string
  *                       example: "error interno del servidor"
- * role :
+ * /product:
  *   get:
- *     tags: [role]
+ *     tags: [product]
  *     responses:
  *       200:
  *         description: OK
@@ -78,7 +78,7 @@ module.exports = roleRouter
  *                 data:
  *                   type: array
  *                   items:
- *                      $ref: "#/components/schemas/role"
+ *                      $ref: "#/components/schemas/product"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -95,9 +95,9 @@ module.exports = roleRouter
  *                     error:
  *                       type: string
  *                       example: "Some error message"
- * /role  /{id}:
+ * /product/{id}:
  *   get:
- *     tags: [role  ]
+ *     tags: [product]
  *     parameters:
  *       - name: id
  *         in: path
@@ -118,7 +118,7 @@ module.exports = roleRouter
  *                   example: OK
  *                 data:
  *                   type: object
- *                   $ref: "#/components/schemas/role "
+ *                   $ref: "#/components/schemas/product"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -136,7 +136,7 @@ module.exports = roleRouter
  *                       type: string
  *                       example: "Some error message"
  *   put:
- *     tags: [role]
+ *     tags: [product]
  *     parameters:
  *       - name: id
  *         in: path
@@ -149,7 +149,7 @@ module.exports = roleRouter
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/role"
+ *                $ref: "#/components/schemas/product"
  *     responses:
  *       200:
  *         description: OK
@@ -181,7 +181,7 @@ module.exports = roleRouter
  *                       type: string
  *                       example: "Some error message"
  *   delete:
- *     tags: [role]
+ *     tags: [product]
  *     parameters:
  *       - name: id
  *         in: path

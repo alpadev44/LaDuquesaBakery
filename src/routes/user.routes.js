@@ -1,36 +1,36 @@
 const express  = require('express') 
-const { 
-    createOrderController,
-    getAllOrderController, 
-    detailsOrderController, 
-    updateOrderController, 
-    deleteOrderController
-} = require('../controllers/orderController.js')
+const  { 
+    createUserController,
+    getAllUserController, 
+    detailsUserController, 
+    updateUserController, 
+    deleteUserController
+} = require('../controllers/user.controller.js')
 
-const orderRouter = express.Router()
+const userRouter = express.Router()
 
-orderRouter.post('/create', createOrderController)
-orderRouter.get('/', getAllOrderController)
-orderRouter.get('/:id', detailsOrderController)
-orderRouter.put('/:id', updateOrderController)
-orderRouter.delete('/:id', deleteOrderController)
+userRouter.post('/create', createUserController)
+userRouter.get('/', getAllUserController)
+userRouter.get('/:id', detailsUserController)
+userRouter.put('/:id', updateUserController)
+userRouter.delete('/:id', deleteUserController)
 
-module.exports = orderRouter
+module.exports = userRouter
 
 /**
  * @openapi
  * tags:
- *   name: order
+ *   name: user
  *   description: API para manejar las imagenes
- * /order/create:
+ * /user/create:
  *   post:
- *     tags: [order]
+ *     tags: [user]
  *     requestBody:
  *       description: crea un nueva direccion
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/order"
+ *                $ref: "#/components/schemas/user"
  *     responses:
  *       200:
  *         description: OK
@@ -43,7 +43,7 @@ module.exports = orderRouter
  *                   type: string
  *                   example: OK
  *                 data:
- *                    $ref: "#/components/schemas/order"
+ *                    $ref: "#/components/schemas/user"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -60,9 +60,9 @@ module.exports = orderRouter
  *                     error:
  *                       type: string
  *                       example: "error interno del servidor"
- * /order:
+ * /user:
  *   get:
- *     tags: [order]
+ *     tags: [user]
  *     responses:
  *       200:
  *         description: OK
@@ -77,7 +77,7 @@ module.exports = orderRouter
  *                 data:
  *                   type: array
  *                   items:
- *                      $ref: "#/components/schemas/order"
+ *                      $ref: "#/components/schemas/user"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -94,9 +94,9 @@ module.exports = orderRouter
  *                     error:
  *                       type: string
  *                       example: "Some error message"
- * /order/{id}:
+ * /user/{id}:
  *   get:
- *     tags: [order]
+ *     tags: [user]
  *     parameters:
  *       - name: id
  *         in: path
@@ -117,7 +117,7 @@ module.exports = orderRouter
  *                   example: OK
  *                 data:
  *                   type: object
- *                   $ref: "#/components/schemas/order"
+ *                   $ref: "#/components/schemas/user"
  *       5XX:
  *         description: FAILED
  *         content:
@@ -135,7 +135,7 @@ module.exports = orderRouter
  *                       type: string
  *                       example: "Some error message"
  *   put:
- *     tags: [order]
+ *     tags: [user]
  *     parameters:
  *       - name: id
  *         in: path
@@ -148,7 +148,7 @@ module.exports = orderRouter
  *       content:
  *          application/json:
  *             schema:
- *                $ref: "#/components/schemas/order"
+ *                $ref: "#/components/schemas/user"
  *     responses:
  *       200:
  *         description: OK
@@ -180,7 +180,7 @@ module.exports = orderRouter
  *                       type: string
  *                       example: "Some error message"
  *   delete:
- *     tags: [order]
+ *     tags: [user]
  *     parameters:
  *       - name: id
  *         in: path
