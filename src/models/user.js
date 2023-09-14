@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -71,10 +71,10 @@ module.exports = (sequelize, DataTypes) => {
   });
   User.associate = function (models) {
     User.hasOne(models.Role);
-    User.hasOne(models.User, {
-      foreignKey: "user_id",
-      as: "user",
-    });
+    User.belongsTo(models.Order);
+
+    //cambie la relacion de user con order de uno a muchos, puesto que un usuario deberia tener la facultad
+    //de hacer varias ordenes
   };
   return User;
 };
