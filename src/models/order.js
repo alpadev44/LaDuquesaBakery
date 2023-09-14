@@ -82,7 +82,7 @@ module.exports = (sequelize, DataTypes) => {
     Order.belongsToMany(models.Product, {
       through: "orderProduct",
     });
-    Order.hasMany(models.User);
+    Order.hasOne(models.User);
   };
 
   return Order;

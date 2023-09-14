@@ -27,7 +27,7 @@ class Server {
     this.subCategoryPath = "/subCategory";
     this.categoryPath = "/category";
     this.imagePath = "/image";
-    this.productPath = "/prodruct";
+    this.productPath = "/product";
     this.rolePath = "/role";
     this.userPath = "/user";
     this.orderPath = "/order";

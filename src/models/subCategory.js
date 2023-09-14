@@ -41,10 +41,7 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
     SubCategory.associate = function (models) {
-        SubCategory.hasOne(models.Category, {
-            foreignKey: 'subCategory_id',
-            as: 'category',
-        });
+        SubCategory.belongsTo(models.Category);
     };
 
     return SubCategory;
