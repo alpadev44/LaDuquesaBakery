@@ -40,8 +40,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
         },
     });
+    
     SubCategory.associate = function (models) {
-        SubCategory.belongsTo(models.Category);
+        SubCategory.hasOne(models.Category);
     };
 
     return SubCategory;

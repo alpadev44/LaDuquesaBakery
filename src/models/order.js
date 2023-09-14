@@ -70,19 +70,19 @@ module.exports = (sequelize, DataTypes) => {
     //         model: 'Products'
     //     }
     // },
-    user_id: {
-      type: DataTypes.BIGINT,
-      allowNull: true,
-      references: {
-        model: "Users",
-      },
-    },
+    // user_id: {
+    //   type: DataTypes.BIGINT,
+    //   allowNull: true,
+    //   references: {
+    //     model: "Users",
+    //   },
+    // },
   });
   Order.associate = function (models) {
     Order.belongsToMany(models.Product, {
       through: "orderProduct",
     });
-    Order.hasOne(models.User);
+    Order.belongsTo(models.User);
   };
 
   return Order;

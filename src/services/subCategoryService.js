@@ -12,7 +12,7 @@ async function createSubCategoryService(data) {
 
 async function getAllSubCategoryService() {
   try {
-    return await subCategory.findAll();
+    return await SubCategory.findAll();
   } catch (err) {
     throw err;
   }
@@ -20,7 +20,7 @@ async function getAllSubCategoryService() {
 
 async function detailsSubCategoryService(id) {
   try {
-    return await subCategory.findByPk(id);
+    return await SubCategory.findByPk(id);
   } catch (err) {
     throw err;
   }
@@ -28,7 +28,7 @@ async function detailsSubCategoryService(id) {
 
 async function updateSubCategoryService(id, data) {
   try {
-    await subCategory.update(data, { where: { id: id } });
+    await SubCategory.update(data, { where: { id: id } });
     return await this.details(id);
   } catch (err) {
     throw err;
@@ -37,7 +37,7 @@ async function updateSubCategoryService(id, data) {
 
 async function deleteSubCategoryService(id) {
   try {
-    return await subCategory.destroy({ where: { id: id } });
+    return await SubCategory.destroy({ where: { id: id } });
   } catch (err) {
     throw err;
   }

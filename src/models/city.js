@@ -45,10 +45,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   City.associate = function (models) {
     City.belongsTo(models.Address);
-    City.hasOne(models.Product, {
-      foreignKey: "city_id",
-      as: "product",
-    });
+    City.hasOne(models.Product);
   };
 
   return City;

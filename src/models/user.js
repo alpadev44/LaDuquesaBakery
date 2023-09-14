@@ -70,8 +70,9 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   User.associate = function (models) {
-    User.hasOne(models.Role);
-    User.hasmany(models.Order);
+    User.belongsTo(models.Role);
+    User.hasOne(models.Order);
+    //User.hasmany(models.Order);
 
     //cambie la relacion de user con order de uno a muchos, puesto que un usuario deberia tener la facultad
     //de hacer varias ordenes

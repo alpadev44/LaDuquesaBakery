@@ -70,35 +70,36 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       validate: { min: 0, max: 5 },
     },
-    category_id: {
-      type: DataTypes.BIGINT,
-      allowNull: true,
-      references: {
-        model: "Categories",
-        key: "id",
-      },
-    },
-    city_id: {
-      type: DataTypes.BIGINT,
-      allowNull: true,
-      references: {
-        model: "Cities",
-        key: "id",
-      },
-    },
-    image_id: {
-      type: DataTypes.BIGINT,
-      allowNull: true,
-      references: {
-        model: "Images",
-        key: "id",
-      },
-    },
+
+    // category_id: {
+    //   type: DataTypes.BIGINT,
+    //   allowNull: true,
+    //   references: {
+    //     model: "Categories",
+    //     key: "id",
+    //   },
+    // },
+    // city_id: {
+    //   type: DataTypes.BIGINT,
+    //   allowNull: true,
+    //   references: {
+    //     model: "Cities",
+    //     key: "id",
+    //   },
+    // },
+    // image_id: {
+    //   type: DataTypes.BIGINT,
+    //   allowNull: true,
+    //   references: {
+    //     model: "Images",
+    //     key: "id",
+    //   },
+    // },
   });
   Product.associate = function (models) {
-    Product.hasOne(models.Category),
-      Product.belongsTo(models.City),
-      Product.hasOne(models.Image);
+    Product.belongsTo(models.Category);
+    Product.belongsTo(models.City);
+    Product.hasOne(models.Image);
     Product.belongsToMany(models.Order, {
       through: "orderProduct",
     });

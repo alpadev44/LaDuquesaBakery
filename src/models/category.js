@@ -40,22 +40,18 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
       type: DataTypes.STRING,
     },
-    subCategory_id: {
-      type: DataTypes.BIGINT,
-      allowNull: true,
-      references: {
-        model: "SubCategories",
-        key: "id",
-      },
-    },
+    // subCategory_id: {
+    //   type: DataTypes.BIGINT,
+    //   allowNull: true,
+    //   references: {
+    //     model: "SubCategories",
+    //     key: "id",
+    //   },
+    // },
   });
   Category.associate = function (models) {
-    Category.hasOne(models.SubCategory, {
-      as: "sub",
-    });
-    // cambie la cardinalidad de la relacion, la inverti
-    Category.belongsTo(models.Product);
-    // cambie la cardinalidad de la relacion, la inverti
+    Category.belongsTo(models.SubCategory);
+    Category.hasOne(models.Product);
   };
 
   return Category;
