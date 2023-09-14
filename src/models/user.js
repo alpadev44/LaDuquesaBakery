@@ -58,7 +58,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     role_id: {
       type: DataTypes.BIGINT,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: "Roles",
         key: "id",
@@ -66,7 +66,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     status: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false,
+      defaultValue: true,
     },
   });
   User.associate = function (models) {

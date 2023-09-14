@@ -13,6 +13,7 @@ const cityRouter = require("../src/routes/city.routes.js");
 const imageRouter = require("../src/routes/image.routes.js");
 const orderRouter = require("../src/routes/order.routes.js");
 const paypalRouter = require("../src/routes/paypal.routes.js");
+const authRouter = require("../src/routes/auth.routes.js");
 
 const db = require("./db.js");
 
@@ -47,6 +48,7 @@ class Server {
   }
 
   routes() {
+    this.app.use(this.authPath, authRouter);
     this.app.use(this.addressPath, addressRouter);
     this.app.use(this.cityPath, cityRouter);
     this.app.use(this.subCategoryPath, subCategoryRouter);
